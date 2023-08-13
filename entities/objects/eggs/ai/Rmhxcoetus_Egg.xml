@@ -1,0 +1,77 @@
+<BFTypedBinder binderType="Rmhxcoetus_Egg">
+   <types>
+      <entity>
+         <egg>
+            <Rmhxcoetus_Egg/>
+         </egg>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="1.0" tankPlacement="true" waterPlacement="true" landPlacement="false"/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Rmhxcoetus_Egg"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Rmhxcoetus_Egg"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Species="Rmhxcoetus" s_Zoopedia="zoopedia:zoopedia_Rmhxcoetus:entry" s_Endangerment="LowRisk"/>
+	<BFGBiomeData location="coastal_medit_marvels" locationSensitivity="10">
+		<alpine sensitivity="10" />
+		<benthic sensitivity="10" />
+		<borealforest sensitivity="10" />
+		<coastal sensitivity="10" />
+		<desert sensitivity="10" />
+		<grassland sensitivity="10" />
+		<pelagic sensitivity="10"  />
+		<reef sensitivity="10" primary="true" />
+		<temperateforest sensitivity="10" />
+		<tropicalrainforest sensitivity="10" />
+		<tundra sensitivity="10" />
+		<savannah sensitivity="10" />
+		<scrub sensitivity="10" />
+		<wetlands sensitivity="10" />
+	</BFGBiomeData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent grid="footprint"/>
+               <BFActorComponent actorfile="entities\objects\eggs\Rmhxcoetus_Egg\Rmhxcoetus_Egg.bfm" scale="1.5" switch="0 18 36"/>
+	       <BFMultiGroundFitComponent heightOffset="0.0" />
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAICognitiveMgr>
+               <Sensors>
+                  <ZTAISensor/>
+                  <BFAISensorSelf/>
+               </Sensors>
+               <StateThinkers>
+                  <ZTAIStateThinker>
+                     <BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="0.5" TriggerThreshold="0.6" CriticalThreshold="0.6" Advanced="true"/>
+                  </ZTAIStateThinker>
+               </StateThinkers>
+               <TaskThinkers>
+                  <ZTAITaskThinker/>
+               </TaskThinkers>
+            </BFAICognitiveMgr>
+         </instance>
+         <shared>
+            <BFAICogShared>
+               <BFAINoPerceive>
+                  <fence/>
+                  <path/>
+                  <entrance/>
+               </BFAINoPerceive>
+            </BFAICogShared>
+         </shared>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>
